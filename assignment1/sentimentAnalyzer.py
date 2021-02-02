@@ -21,9 +21,9 @@ class Word:
     self.sentiment = 0
 
 #Parses review file to create Review instances.
-def getReviews():
+def getReviews(filename):
   data = []
-  with open('./data/posts', 'r') as f:
+  with open(filename, 'r') as f:
     rating = ""
     post = []
 
@@ -85,7 +85,7 @@ print("Parsing words...")
 negative = getWordsFromFile("./data/negative")
 positive = getWordsFromFile("./data/positive")
 print("Parsing reviews...")
-posts = getReviews()
+posts = getReviews('./data/posts')
 
 print("Scoring negative words...")
 processList(negative, True)
